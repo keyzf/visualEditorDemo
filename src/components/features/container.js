@@ -2,7 +2,7 @@
  * @Author: yuanxy 
  * @Date: 2018-12-16 20:38:48 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-16 23:38:18
+ * @Last Modified time: 2018-12-17 00:29:40
  */
 import React from 'react'
 import {
@@ -47,11 +47,13 @@ class Container extends React.Component {
         })
     }
 
-    updateSize = (id,width,height) => {
+    updateSize = (id,width,height,x,y) => {
         this.props.dispatch({
             type: 'move', payload: {
                 width,
                 height,
+                x,
+                y,
                 id
             }
         })

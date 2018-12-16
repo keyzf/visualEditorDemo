@@ -2,7 +2,7 @@
  * @Author: yuanxy 
  * @Date: 2018-12-16 20:38:52 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-17 00:21:56
+ * @Last Modified time: 2018-12-17 01:04:12
  */
 import React from 'react'
 import { findDOMNode } from 'react-dom'
@@ -66,18 +66,21 @@ class BoxCmp extends React.Component {
      */
     computeSize = (e) => {
         const { type } = this.state
-        const { updateSize, id, width, height } = this.props
-        const { clientX, clientY } = e
+        const { updateSize, id, width, height, x, y } = this.props
+        const { clientX, clientY, offsetY } = e
         const { x: xx, y: yy } = findDOMNode(this.ref).getBoundingClientRect()
         switch (type) {
             case 'RT':
-                updateSize(id, clientX - xx, height)
+                updateSize(id, clientX - xx, height, x, y)
                 break;
             case 'D':
-                updateSize(id, width, clientY - yy)
+                updateSize(id, width, clientY - yy, x, y)
                 break;
             case 'U':
-                updateSize(id, width, clientY + yy)
+                updateSize(id, width, height + (yy - clientY), x, clientY - (yy - y))
+                break;
+            case 'L':
+                updateSize(id, width + (xx - clientX), height, clientX - (xx - x), y)
                 break;
             default:
                 return
@@ -97,7 +100,7 @@ class BoxCmp extends React.Component {
                 <div className='u-rightBottom'></div>
                 <div className='u-bottom' onMouseDown={(e) => this.updateSize(e, 'D')}></div>
                 <div className='u-leftBottom'></div>
-                <div className='u-left'></div>
+                <div className='u-left' onMouseDown={(e) => this.updateSize(e, 'L')}></div>
             </div>
         )
     }
