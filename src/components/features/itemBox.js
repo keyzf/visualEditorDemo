@@ -1,3 +1,9 @@
+/*
+ * @Author: yuanxy 
+ * @Date: 2018-12-16 20:38:52 
+ * @Last Modified by:   yuanxy 
+ * @Last Modified time: 2018-12-16 20:38:52 
+ */
 import React from 'react'
 import {
     DragSource,
@@ -8,10 +14,8 @@ import './itemBox.scss'
 const source = {
     beginDrag(props) {
        return props
-    },
-    // isDragging(props, monitor) {
-    //     return props.id === monitor.getItem().id
-    // }
+    }
+  
 }
 
 class BoxCmp extends React.Component{

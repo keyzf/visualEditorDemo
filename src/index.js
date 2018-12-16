@@ -2,7 +2,7 @@
  * @Author: zengjian 
  * @Date: 2018-12-03 20:10:00 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-16 17:57:37
+ * @Last Modified time: 2018-12-16 20:36:30
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -16,7 +16,6 @@ import middlewares from './middleware'
 import logger from './middleware/logger'
 
 import App from './container/index'
-import HTML5Backend from 'react-dnd-html5-backend'
 import 'antd/dist/antd.css'
 
 
