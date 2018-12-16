@@ -2,7 +2,7 @@
  * @Author: yuanxy 
  * @Date: 2018-12-16 20:38:48 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-16 21:55:35
+ * @Last Modified time: 2018-12-16 23:38:18
  */
 import React from 'react'
 import {
@@ -32,37 +32,55 @@ const boxTarget = {
 }
 
 class Container extends React.Component {
-   
+
     static defaultProps = {
         comps: []
     }
-    state={
-        current:-1
+    state = {
+        current: -1
     }
-    componentDidMount(){
-        window.addEventListener('click',()=>{
+    componentDidMount() {
+        window.addEventListener('click', () => {
             this.setState({
-                current:-1
+                current: -1
             })
         })
     }
-    selectItem=(id)=>{
+
+    updateSize = (id,width,height) => {
+        this.props.dispatch({
+            type: 'move', payload: {
+                width,
+                height,
+                id
+            }
+        })
+    }
+
+    selectItem = (id) => {
         this.setState({
-            current:id
+            current: id
         })
     }
     move = (id, x, y) => {
         this.props.dispatch({
             type: 'move', payload: {
-                x: x,
-                y: y,
-                id: id
+                x,
+                y,
+                id
             }
         })
     }
     renderBox = () => {
         return this.props.comps.map((child, index) => {
-            return <ItemBox key={index} {...child} move={this.move} selectItem={this.selectItem} {...this.state} />
+            return <ItemBox
+                key={index}
+                {...child}
+                move={this.move}
+                updateSize={this.updateSize}
+                selectItem={this.selectItem}
+                {...this.state}
+            />
         })
     }
     render() {

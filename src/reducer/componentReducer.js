@@ -2,7 +2,7 @@
  * @Author: zengjian 
  * @Date: 2018-12-10 19:22:03 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-16 20:28:02
+ * @Last Modified time: 2018-12-16 23:44:47
  */
 let initialState = {
     comps: [{
@@ -15,7 +15,7 @@ let initialState = {
     }, {
         x: 0,
         y: 0,
-        width: 100,
+        width: 50,
         height: 100,
         id: 2,
         background:'green'
@@ -36,6 +36,7 @@ const reducer = (state = initialState, action) => {
                 return c
             })
             return { ...state, comps: newComps }
+            
         default:
             return state
     }

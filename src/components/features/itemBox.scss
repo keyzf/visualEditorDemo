@@ -4,8 +4,54 @@
     background: red;
     position: absolute;
     z-index: 1;
+
 }
 
 .z-cur{
     border: 2px blue solid;
+
+.u-left,.u-top,.u-right,.u-bottom,
+.u-leftTop,.u-rightTop,.u-rightBottom,.u-leftBottom{
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border: 2px blue solid;
+}
+.u-leftTop,.u-rightTop
+{
+    top:-4px;
+}
+.u-leftTop{
+    left: -4px;
+}
+.u-rightTop{
+    right: -4px;
+}
+
+.u-left{
+    left: -4px;
+    top: calc(50% - 4px)
+}
+.u-right{
+    right:-4px;
+    top:calc(50% - 4px)
+}
+.u-leftBottom{
+    bottom: -4px;
+    left: -4px;
+}
+
+.u-rightBottom{
+    right: -4px;
+    bottom: -4px;
+}
+.u-top{
+    left:calc(50% - 4px);
+    top:-4px;
+}
+.u-bottom{
+    bottom: -4px;
+    left:calc(50% - 4px);
+}
 }
