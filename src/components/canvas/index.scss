@@ -1,0 +1,22 @@
+/*
+ * @Author: zengjian 
+ * @Date: 2018-12-10 19:57:03 
+ * @Last Modified by: yuanxy
+ * @Last Modified time: 2018-12-16 20:27:01
+ */
+.cp-canvas{
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    width: 800px;
+    height: 600px;
+    background: #f4f4f4;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 0;
+    transition: ease .5s all;
+}
