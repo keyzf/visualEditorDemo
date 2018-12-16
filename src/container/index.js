@@ -1,8 +1,8 @@
 /*
  * @Author: zengjian 
  * @Date: 2018-12-10 19:52:57 
- * @Last Modified by:   zengjian 
- * @Last Modified time: 2018-12-10 19:52:57 
+ * @Last Modified by: yuanxy
+ * @Last Modified time: 2018-12-16 20:46:25
  */
 import React from 'react'
 import {Layout,Menu} from 'antd'
@@ -18,6 +18,7 @@ export default class Index extends React.Component{
         return <div className='editor-warpper'>
                 <Header>
                     <Menu
+                        style={{ lineHeight: '64px' }}
                         theme="dark"
                         mode="horizontal"
                         defaultSelectedKeys={['2']}
