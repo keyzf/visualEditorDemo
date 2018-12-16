@@ -1,8 +1,8 @@
 /*
  * @Author: yuanxy 
  * @Date: 2018-12-16 20:38:48 
- * @Last Modified by:   yuanxy 
- * @Last Modified time: 2018-12-16 20:38:48 
+ * @Last Modified by: yuanxy
+ * @Last Modified time: 2018-12-16 21:55:35
  */
 import React from 'react'
 import {
@@ -32,8 +32,24 @@ const boxTarget = {
 }
 
 class Container extends React.Component {
+   
     static defaultProps = {
         comps: []
+    }
+    state={
+        current:-1
+    }
+    componentDidMount(){
+        window.addEventListener('click',()=>{
+            this.setState({
+                current:-1
+            })
+        })
+    }
+    selectItem=(id)=>{
+        this.setState({
+            current:id
+        })
     }
     move = (id, x, y) => {
         this.props.dispatch({
@@ -46,7 +62,7 @@ class Container extends React.Component {
     }
     renderBox = () => {
         return this.props.comps.map((child, index) => {
-            return <ItemBox key={index} {...child} move={this.move} />
+            return <ItemBox key={index} {...child} move={this.move} selectItem={this.selectItem} {...this.state} />
         })
     }
     render() {
