@@ -1,8 +1,8 @@
 /*
  * @Author: zengjian 
  * @Date: 2018-12-04 09:43:18 
- * @Last Modified by:   zengjian 
- * @Last Modified time: 2018-12-04 09:43:18 
+ * @Last Modified by: yuanxy
+ * @Last Modified time: 2018-12-17 23:55:20
  */
 import React from 'react'
 import Customer from './context'
@@ -15,9 +15,7 @@ export default class Provider extends React.Component{
             ...props.store.getState(),
             dispatch:props.store.dispatch
         }
-    }
-    
-    componentDidMount(){
+
         this.props.store.subscribe(()=>{
             this.setState({
                 ...this.props.store.getState(),
@@ -25,7 +23,7 @@ export default class Provider extends React.Component{
             })
         })
     }
-
+  
     render(){
         return <Customer.Provider value ={{
             ...this.state

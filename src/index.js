@@ -2,7 +2,7 @@
  * @Author: zengjian 
  * @Date: 2018-12-03 20:10:00 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-16 20:36:30
+ * @Last Modified time: 2018-12-17 22:15:16
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -19,7 +19,9 @@ import App from './container/index'
 import 'antd/dist/antd.css'
 
 
-const store=middlewares(new createStore(reducer,{}),[logger])
+const store=middlewares(new createStore(reducer,{
+   
+}),[logger])
 
 
 

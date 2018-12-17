@@ -2,7 +2,7 @@
  * @Author: yuanxy 
  * @Date: 2018-12-16 20:38:52 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-17 10:46:24
+ * @Last Modified time: 2018-12-17 23:48:42
  */
 import React from 'react'
 import { findDOMNode } from 'react-dom'
@@ -25,10 +25,7 @@ const source = {
 }
 
 class BoxCmp extends React.Component {
-    constructor(props) {
-        super(props)
-
-    }
+  
     state = {
         type: ''
     }
@@ -67,7 +64,7 @@ class BoxCmp extends React.Component {
     computeSize = (e) => {
         const { type } = this.state
         const { updateSize, id, width, height, x, y } = this.props
-        const { clientX, clientY, offsetY } = e
+        const { clientX, clientY } = e
         const { x: xx, y: yy } = findDOMNode(this.ref).getBoundingClientRect()
         switch (type) {
             case 'RT':

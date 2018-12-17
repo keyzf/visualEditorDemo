@@ -2,7 +2,7 @@
  * @Author: yuanxy 
  * @Date: 2018-12-16 20:38:48 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-17 10:55:21
+ * @Last Modified time: 2018-12-17 23:47:02
  */
 import React from 'react'
 import {
@@ -51,7 +51,7 @@ class Container extends React.Component {
         //宽高小于20不做处理
         if(width < 20 ||  height< 20 ) return
         this.props.dispatch({
-            type: 'move', payload: {
+            type: 'comp-move', payload: {
                 width,
                 height,
                 x,
@@ -68,7 +68,7 @@ class Container extends React.Component {
     }
     move = (id, x, y) => {
         this.props.dispatch({
-            type: 'move', payload: {
+            type: 'comp-move', payload: {
                 x,
                 y,
                 id
