@@ -2,7 +2,7 @@
  * @Author: yuanxy 
  * @Date: 2018-12-16 20:38:52 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-17 01:04:12
+ * @Last Modified time: 2018-12-17 10:46:24
  */
 import React from 'react'
 import { findDOMNode } from 'react-dom'
@@ -82,6 +82,18 @@ class BoxCmp extends React.Component {
             case 'L':
                 updateSize(id, width + (xx - clientX), height, clientX - (xx - x), y)
                 break;
+            case 'TL':
+                updateSize(id, width + (xx - clientX), height + (yy - clientY), clientX - (xx - x), clientY - (yy - y))
+                break;
+            case 'TR':
+                updateSize(id, clientX - xx, height + (yy - clientY), x, clientY - (yy - y))
+                break;
+            case 'DL':
+                updateSize(id, width + (xx - clientX), clientY - yy, clientX - (xx - x), y)
+                break;
+            case 'DR':
+                updateSize(id, (clientX - xx), clientY - yy, x, y)
+                break;
             default:
                 return
         }
@@ -93,13 +105,13 @@ class BoxCmp extends React.Component {
                 className={`box-feature ${id === current ? 'z-cur' : ''}`}
                 style={{ left: x, top: y, background, width, height }}
             >
-                <div className='u-leftTop'></div>
+                <div className='u-leftTop' onMouseDown={(e) => this.updateSize(e, 'TL')}></div>
                 <div className='u-top' onMouseDown={(e) => this.updateSize(e, 'U')}></div>
-                <div className='u-rightTop'></div>
+                <div className='u-rightTop' onMouseDown={(e) => this.updateSize(e, 'TR')}></div>
                 <div className='u-right' onMouseDown={(e) => this.updateSize(e, 'RT')}></div>
-                <div className='u-rightBottom'></div>
+                <div className='u-rightBottom' onMouseDown={(e) => this.updateSize(e, 'DR')}></div>
                 <div className='u-bottom' onMouseDown={(e) => this.updateSize(e, 'D')}></div>
-                <div className='u-leftBottom'></div>
+                <div className='u-leftBottom' onMouseDown={(e) => this.updateSize(e, 'DL')}></div>
                 <div className='u-left' onMouseDown={(e) => this.updateSize(e, 'L')}></div>
             </div>
         )
