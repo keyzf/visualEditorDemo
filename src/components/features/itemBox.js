@@ -2,7 +2,7 @@
  * @Author: yuanxy 
  * @Date: 2018-12-16 20:38:52 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-17 23:48:42
+ * @Last Modified time: 2018-12-18 22:10:02
  */
 import React from 'react'
 import { findDOMNode } from 'react-dom'
@@ -11,6 +11,10 @@ import {
 
 } from 'react-dnd'
 import './itemBox.scss'
+
+import Pie from '../charts/pie'
+import Bar from '../charts/bar'
+import Line from '../charts/line'
 
 const source = {
     beginDrag(props) {
@@ -96,7 +100,7 @@ class BoxCmp extends React.Component {
         }
     }
     render() {
-        const { connectDragSource, x, y, background, id, current, width, height } = this.props;
+        const { connectDragSource, x, y, background, id, current, width, height,type } = this.props;
         return connectDragSource(
             <div ref={e => this.ref = e} onClick={(e) => this.onClickHandler(e, id)}
                 className={`box-feature ${id === current ? 'z-cur' : ''}`}
@@ -110,6 +114,11 @@ class BoxCmp extends React.Component {
                 <div className='u-bottom' onMouseDown={(e) => this.updateSize(e, 'D')}></div>
                 <div className='u-leftBottom' onMouseDown={(e) => this.updateSize(e, 'DL')}></div>
                 <div className='u-left' onMouseDown={(e) => this.updateSize(e, 'L')}></div>
+                <div style={{position:'absolute',left:0,top:0,right:0,bottom:0,margin:'auto'}}>
+                    {type==='pie' && <Pie/>} 
+                    {type==='bar' && <Bar/>}
+                    {type==='line' && <Line/>}
+                </div>
             </div>
         )
     }

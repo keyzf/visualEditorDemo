@@ -2,7 +2,7 @@
  * @Author: zengjian 
  * @Date: 2018-12-10 19:52:57 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-17 23:57:49
+ * @Last Modified time: 2018-12-18 21:52:27
  */
 import React from 'react'
 import {Layout,Menu} from 'antd'
@@ -22,7 +22,7 @@ class Index extends React.Component{
         this.props.dispatch({
             type:'comp-add',
             payload:{
-                type:'pie'
+                type:type
             }
         })
     }
@@ -43,8 +43,8 @@ class Index extends React.Component{
                         defaultSelectedKeys={['2']}
                     >
                         <Menu.Item key="1" onClick={()=>this.addComponent('pie')}>饼图</Menu.Item>
-                        <Menu.Item key="2">柱状图</Menu.Item>
-                        <Menu.Item key="3">折线图</Menu.Item>
+                        <Menu.Item key="2" onClick={()=>this.addComponent('bar')}>柱状图</Menu.Item>
+                        <Menu.Item key="3" onClick={()=>this.addComponent('line')}>折线图</Menu.Item>
                     </Menu>
                 </Header>
                 <div className='editor-content'>

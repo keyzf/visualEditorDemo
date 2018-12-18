@@ -2,7 +2,7 @@
  * @Author: zengjian 
  * @Date: 2018-12-10 19:22:03 
  * @Last Modified by: yuanxy
- * @Last Modified time: 2018-12-17 23:46:39
+ * @Last Modified time: 2018-12-18 22:12:29
  */
 import update from 'immutability-helper';
 
@@ -14,7 +14,7 @@ let initialState = {
         width: 100,
         height: 100,
         id: 1,
-        background:'red',
+        background:'none',
         type:'bar'
     }, {
         x: 0,
@@ -22,14 +22,14 @@ let initialState = {
         width: 50,
         height: 100,
         id: 2,
-        background:'green'
+        background:'rgba(0,0,0,.2)'
     },{
         x: 200,
         y: 200,
         width: 110,
         height: 100,
         id: 3,
-        background:'yellow'
+        background:'rgba(0,0,0,.1)'
     }],
 
 }
@@ -43,8 +43,9 @@ const reducer = (state = initialState, action) => {
                 y:0,
                 width:80,
                 height:80,
-                background:'#ff6600',
-                id:id
+                background:'none',
+                id:id,
+                type:action.payload.type
             }
             return update(state,{
                 comps:{
